@@ -38,6 +38,8 @@ public class Entity {
     public Direction direction = Direction.DOWN; // Enum Direction (class)
     public boolean collisionOn = false;
 
+    public int damage = 1; // sát thương của thực thể
+
     protected Entity() {
     }
 
@@ -48,6 +50,10 @@ public class Entity {
         this.coChecker = new CollisionChecker(gp);
     }
 
+    protected BufferedImage setUp(String imagePath) {
+
+        return uTool.getImage(imagePath);
+    }
 
     public void setAction() {
         // de cac lop ke thua ghi de

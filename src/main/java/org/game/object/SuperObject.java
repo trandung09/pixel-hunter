@@ -8,7 +8,8 @@ import org.game.control.UtilityTool;
 import org.game.frame.GamePanel;
 
 public class SuperObject {
-      protected GamePanel gp;
+
+    protected GamePanel gp;
     protected UtilityTool uTool;
     protected BufferedImage image;
     
@@ -31,6 +32,6 @@ public class SuperObject {
 
 
     public void draw(Graphics2D g2D) {
-
+        // xử lý vẽ object theo vị trí nhân vật
     }
 }

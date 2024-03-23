@@ -1,7 +1,6 @@
 package org.game.control;
 
 import org.game.entity.Entity;
-
 import org.game.frame.GamePanel;
 
 public class CollisionChecker {

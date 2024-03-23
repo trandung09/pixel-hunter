@@ -11,9 +11,13 @@ public class GameFrame extends JFrame {
     GameFrame() {
 
         this.add(gp);
+        this.addKeyListener(gp.keyH);
+        
         this.setVisible(true);
-        this.setSize(new Dimension(GamePanel.maxScreenWidth, GamePanel.maxScreenHeight));
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(true);
+        this.setSize(new Dimension(GamePanel.screenWidth, GamePanel.screenHeight));
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);  
     }
     public static void main(String[] args) {
         
