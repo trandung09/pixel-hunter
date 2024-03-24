@@ -33,5 +33,6 @@ public class SuperObject {
 
     public void draw(Graphics2D g2D) {
         // xử lý vẽ object theo vị trí nhân vật
+        g2D.drawImage(image, worldX, worldY, null);
     }
 }
