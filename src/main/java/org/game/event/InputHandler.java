@@ -15,13 +15,15 @@ public class InputHandler implements KeyListener {
 
         this.gp = gp;
     }
- 
+    
     @Override
     public void keyPressed(KeyEvent e) {
         
         // TODO Auto-generated method stub
         if (gp.mainStage == GameState.WAIT) {
             // nhấn enter -> start state
+            if(e.getKeyCode() == KeyEvent.VK_ENTER) 
+                gp.mainStage = GameState.START;
         }
         else if (gp.mainStage == GameState.START) {
             // nhấn p -> pause state
@@ -31,12 +33,23 @@ public class InputHandler implements KeyListener {
                 case KeyEvent.VK_S: downPressed = true; break;
                 case KeyEvent.VK_A: leftPressed = true; break;
                 case KeyEvent.VK_D: rightPressed = true; break;
+                case KeyEvent.VK_P: gp.mainStage = GameState.PAUSE; break;
                 default: break;
             }
         }
         else if (gp.mainStage == GameState.PAUSE) {
             // nhấn enter tiếp tục -> start state
             // nhấn q -> wait state
+            int key = e.getKeyCode();
+            switch (key) {
+                case KeyEvent.VK_ENTER:
+                    gp.mainStage = GameState.START;
+                    break;
+                case KeyEvent.VK_P:    
+                    gp.mainStage = GameState.WAIT;
+                    break;
+                default: break;
+            }
         }
         else if (gp.mainStage == GameState.END) {
 
