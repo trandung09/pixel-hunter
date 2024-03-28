@@ -73,23 +73,23 @@ public class Player extends Entity
         int width = GamePanel.tileSize; 
         int height = GamePanel.tileSize;
 
-        attackUp1 = setUp("/player/boy_attack_up_1", width, height);
-        attackUp2 = setUp("/player/boy_attack_up_2", width, height);
-        attackDown1 = setUp("/player/boy_attack_down_1", width, height);
-        attackDown2 = setUp("/player/boy_attack_down_2", width, height);
-        attackLeft1 = setUp("/player/boy_attack_left_1", width, height);
-        attackLeft2 = setUp("/player/boy_attack_left_2", width, height);
-        attackRight1 = setUp("/player/boy_attack_right_1", width, height);
-        attackRight2 = setUp("/player/boy_attack_right_2", width, height);
+        attackUp1 = setUp("/player/boy_attack_up_1", width, height * 2);
+        attackUp2 = setUp("/player/boy_attack_up_2", width, height * 2);
+        attackDown1 = setUp("/player/boy_attack_down_1", width, height * 2);
+        attackDown2 = setUp("/player/boy_attack_down_2", width, height * 2);
+        attackLeft1 = setUp("/player/boy_attack_left_1", width * 2, height);
+        attackLeft2 = setUp("/player/boy_attack_left_2", width * 2, height);
+        attackRight1 = setUp("/player/boy_attack_right_1", width * 2, height);
+        attackRight2 = setUp("/player/boy_attack_right_2", width * 2, height);
 
-        cutUp1 = setUp("/player/boy_attack_up_1", width, height);
-        cutUp2 = setUp("/player/boy_attack_up_2", width, height);
-        cutDown1 = setUp("/player/boy_attack_down_1", width, height);
-        cutDown2 = setUp("/player/boy_attack_down_2", width, height);
-        cutLeft1 = setUp("/player/boy_attack_left_1", width, height);
-        cutLeft2 = setUp("/player/boy_attack_left_2", width, height);
-        cutRight1 = setUp("/player/boy_attack_right_1", width, height);
-        cutRight2 = setUp("/player/boy_attack_right_2", width, height);
+        cutUp1 = setUp("/player/boy_axe_up_1", width, height * 2);
+        cutUp2 = setUp("/player/boy_axe_up_2", width, height * 2);
+        cutDown1 = setUp("/player/boy_axe_down_1", width, height * 2);
+        cutDown2 = setUp("/player/boy_axe_down_2", width, height * 2);
+        cutLeft1 = setUp("/player/boy_axe_left_1", width * 2, height);
+        cutLeft2 = setUp("/player/boy_axe_left_2", width * 2, height);
+        cutRight1 = setUp("/player/boy_axe_right_1", width * 2, height);
+        cutRight2 = setUp("/player/boy_axe_right_2", width * 2, height);
     }
 
     @Override

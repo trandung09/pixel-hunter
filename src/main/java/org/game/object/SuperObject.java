@@ -30,9 +30,9 @@ public class SuperObject {
         solidAreaDefaultY = solidArea.y;
     }
 
-    protected BufferedImage getImage(String imagePath) {
+    protected BufferedImage getImage(String imagePath, int width, int height) {
 
-        return uTool.getImage(imagePath);
+        return uTool.getImage(imagePath, width, height);
     }
 
     public void draw(Graphics2D g2D) {

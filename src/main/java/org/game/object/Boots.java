@@ -12,6 +12,6 @@ public class Boots extends SuperObject {
         worldY = 24 * GamePanel.tileSize;
 
         name = "Boots";
-        image = getImage("/object/boots");
+        image = getImage("/object/boots", GamePanel.tileSize, GamePanel.tileSize);
     }
 }

@@ -95,7 +95,7 @@ public class TileManager {
         
         try {
             tiles[index] = new Tile();
-            tiles[index].image = uTool.getImage("/tile/" + imagePath);
+            tiles[index].image = uTool.getImage("/tile/" + imagePath, GamePanel.tileSize, GamePanel.tileSize);
             tiles[index].collision = collision;
     
         } catch (Exception e) {
