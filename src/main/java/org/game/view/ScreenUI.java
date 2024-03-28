@@ -78,9 +78,43 @@ public class ScreenUI extends Interaction {
 
     }
 
+    //DRAW PAUSE SCREEN 
     public void drawPauseScreen() {
- 
         // gọi hàm drawSubWindow trước
+        drawSubWindow(100, 100, 400, 200);
+        //PAUSE
+        //NEW GAME
+        // CONTINEW
+        //QUIT
+        //Pause
+        g2D.setColor(Color.GRAY);
+        g2D.setFont(g2D.getFont().deriveFont(Font.BOLD,76f));
+        String text = "PAUSE";
+        int drawX = getCenterTextForX(text);
+        int drawY = GamePanel.tileSize * 2;
+        
+        g2D.drawString(text, drawX, drawY);
+
+        g2D.setColor(Color.WHITE);
+        g2D.drawString(text, drawX - 5, drawY + 5);
+        //Continew,Quit
+        text = "CONTINEW";
+        drawX = getCenterTextForX(text);
+        drawY = drawY + (GamePanel.tileSize * 3) / 2;
+
+        if (menuCommand == 1) {
+            g2D.drawString(">", drawX - GamePanel.tileSize, drawY);
+        }
+        g2D.drawString(text, drawX, drawY);
+
+        text = "QUIT";
+        drawX = getCenterTextForX(text);
+        drawY = drawY + (GamePanel.tileSize * 3) / 2;
+
+        if (menuCommand == 2) {
+            g2D.drawString(">", drawX - GamePanel.tileSize, drawY);
+        }
+        g2D.drawString(text, drawX, drawY);
     }
 
     public void drawCharacterScreen() {

@@ -69,8 +69,32 @@ public class InputHandler implements KeyListener {
             // nhấn enter tiếp tục -> start state
             // nhấn q -> wait state
             int key = e.getKeyCode();
+        if(gp.screenUI.menuCommand==0){
+            gp.mainStage = GameState.START;
+        }else if(gp.screenUI.menuCommand==1){
+            System.exit(1);
 
-            // Xử lý up down để cài đặt pause 
+        }
+         // Xử lý up down để cài đặt pause 
+        if (keyCode == KeyEvent.VK_UP) {
+
+            if (gp.screenUI.menuCommand == 0) {
+                gp.screenUI.menuCommand=1;
+            }
+            else if (gp.screenUI.menuCommand == 1) {
+                gp.screenUI.menuCommand = 0;
+            }
+        }
+
+        if (keyCode == KeyEvent.VK_DOWN) {
+
+            if (gp.screenUI.menuCommand == 0) {
+                gp.screenUI.menuCommand=1;
+            }
+            else if (gp.screenUI.menuCommand == 1) {
+                gp.screenUI.menuCommand = 0;
+            }
+        }
         }
         else if (gp.mainStage == GameState.END) {
 
