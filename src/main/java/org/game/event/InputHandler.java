@@ -23,7 +23,7 @@ public class InputHandler implements KeyListener {
         
         if (gp.mainStage == GameState.WAIT) {
             // nhấn enter -> start state
-            if(keyCode == KeyEvent.VK_ENTER) {
+            if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 
                 if (gp.screenUI.menuCommand == 0) {
                     gp.mainStage = GameState.START;
@@ -68,33 +68,8 @@ public class InputHandler implements KeyListener {
         else if (gp.mainStage == GameState.PAUSE) {
             // nhấn enter tiếp tục -> start state
             // nhấn q -> wait state
-            int key = e.getKeyCode();
-        if(gp.screenUI.menuCommand==0){
-            gp.mainStage = GameState.START;
-        }else if(gp.screenUI.menuCommand==1){
-            System.exit(1);
-
-        }
-         // Xử lý up down để cài đặt pause 
-        if (keyCode == KeyEvent.VK_UP) {
-
-            if (gp.screenUI.menuCommand == 0) {
-                gp.screenUI.menuCommand=1;
-            }
-            else if (gp.screenUI.menuCommand == 1) {
-                gp.screenUI.menuCommand = 0;
-            }
-        }
-
-        if (keyCode == KeyEvent.VK_DOWN) {
-
-            if (gp.screenUI.menuCommand == 0) {
-                gp.screenUI.menuCommand=1;
-            }
-            else if (gp.screenUI.menuCommand == 1) {
-                gp.screenUI.menuCommand = 0;
-            }
-        }
+    
+            // Xử lý up down để cài đặt pause 
         }
         else if (gp.mainStage == GameState.END) {
 
@@ -103,7 +78,7 @@ public class InputHandler implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
+        
         int key = e.getKeyCode();
         switch (key) {
             case KeyEvent.VK_UP:    upPressed    = false; break;

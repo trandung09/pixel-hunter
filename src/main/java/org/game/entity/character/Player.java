@@ -8,7 +8,6 @@ import org.game.entity.Entity;
 import org.game.enums.Direction;
 import org.game.event.InputHandler;
 import org.game.frame.GamePanel;
-import org.game.object.Heart;
 
 public class Player extends Entity 
 {
@@ -26,7 +25,6 @@ public class Player extends Entity
     public int keys = 0; // số lượng chìa khóa thu thập được
     public int manas = 0; // số lượng mana thu thập được: sử dụng mana -> hồi máu
     public int diamonds = 0; // số lượng kim cương thu được
-    public int HP = 6;
 
     public boolean useKey = false;
     public boolean useMana = false;
@@ -52,7 +50,6 @@ public class Player extends Entity
         solidAreaDefaultY = solidArea.y;
 
         loadPlayerImage();
-        // loadPlayerAttackImage();
     }
 
     private void loadPlayerImage() {
@@ -150,10 +147,7 @@ public class Player extends Entity
 
     // Xử lsy các hành động của nhân vật khi va chạm với quái vật
     public void contactMonster(int index) {
-        if(index < 0){
-            return;
-        }
-        life -= 1;
+
     }
 
     public void attacking() {
@@ -194,9 +188,9 @@ public class Player extends Entity
             case RIGHT:
                 image = drawChecker ? right1 : right2;
                 break;
-            default:break;
+            default: break;
         }
+
         g2D.drawImage(image, drawX, drawY, GamePanel.tileSize, GamePanel.tileSize, null);
     }
-    
 }
