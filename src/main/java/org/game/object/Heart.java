@@ -12,6 +12,8 @@ public class Heart {
     
     public static BufferedImage 
         _blank = uTool.getImage("/object/heart_blank", GamePanel.tileSize, GamePanel.tileSize),
-        _half  = uTool.getImage("/object/heart_half", GamePanel.tileSize, GamePanel.tileSize),  
+        _half  = uTool.getImage("/object/heart_half", GamePanel.tileSize, GamePanel.tileSize),
         _full  = uTool.getImage("/object/heart_full", GamePanel.tileSize, GamePanel.tileSize);
+
+    
 }

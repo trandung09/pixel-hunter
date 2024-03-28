@@ -1,0 +1,4 @@
+* Người chơi sẽ sử dụng 4 phím A, W, D, S để di chuyển phương hướng tương ứng với LEFT, UP, RIGHT, DOWN(TRÁI, LÊN, PHẢI XUỐNG).
+* Game có nhiều màn chơi mỗi màn chơi cấp độ và vật phẩm khi knockdown quái rơi sẽ có tỉ lệ rơi ra các vật phẩm và EXP người chơi sẽ tăng lên.
+* Các vật phẩm người chơi có thể thu thập như: key, boot, diamon, mana stone.
+* Sau khi tiêu diệt đủ quái người chơi sẽ thăng cấp và tăng các chỉ số.

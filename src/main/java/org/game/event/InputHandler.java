@@ -23,7 +23,7 @@ public class InputHandler implements KeyListener {
         
         if (gp.mainStage == GameState.WAIT) {
             // nhấn enter -> start state
-            if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+            if(keyCode == KeyEvent.VK_ENTER) {
 
                 if (gp.screenUI.menuCommand == 0) {
                     gp.mainStage = GameState.START;

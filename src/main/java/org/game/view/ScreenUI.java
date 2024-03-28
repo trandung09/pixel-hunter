@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import org.game.enums.GameState;
 import org.game.frame.GamePanel;
+import org.game.object.Heart;
 
 public class ScreenUI extends Interaction {
 
@@ -60,9 +61,16 @@ public class ScreenUI extends Interaction {
     public void drawDialougeScreen() {
 
     }
-
+//  Dùng để tai anh trái tim
+    public BufferedImage Heart(int heartStatus){
+        if(heartStatus == 0){
+            return Heart._blank;
+        }else if(heartStatus == 1){
+            return Heart._half;
+        }
+        return Heart._full;
+    }
     public void drawPlayerLife() {
-
 
     }   
 
