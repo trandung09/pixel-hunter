@@ -18,12 +18,40 @@ public class InputHandler implements KeyListener {
     
     @Override
     public void keyPressed(KeyEvent e) {
+
+        int keyCode = e.getKeyCode();
         
-        // TODO Auto-generated method stub
         if (gp.mainStage == GameState.WAIT) {
             // nhấn enter -> start state
-            if(e.getKeyCode() == KeyEvent.VK_ENTER) 
-                gp.mainStage = GameState.START;
+            if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                if (gp.screenUI.menuCommand == 0) {
+                    gp.mainStage = GameState.START;
+                }
+                else if (gp.screenUI.menuCommand == 2) {
+                    System.exit(1);
+                }
+            }
+
+            if (keyCode == KeyEvent.VK_UP) {
+
+                if (gp.screenUI.menuCommand > 0) {
+                    gp.screenUI.menuCommand--;
+                }
+                else if (gp.screenUI.menuCommand == 0) {
+                    gp.screenUI.menuCommand = 2;
+                }
+            }
+
+            if (keyCode == KeyEvent.VK_DOWN) {
+
+                if (gp.screenUI.menuCommand < 2) {
+                    gp.screenUI.menuCommand++;
+                }
+                else if (gp.screenUI.menuCommand == 2) {
+                    gp.screenUI.menuCommand = 0;
+                }
+            }
         }
         else if (gp.mainStage == GameState.START) {
             // nhấn p -> pause state
@@ -41,15 +69,8 @@ public class InputHandler implements KeyListener {
             // nhấn enter tiếp tục -> start state
             // nhấn q -> wait state
             int key = e.getKeyCode();
-            switch (key) {
-                case KeyEvent.VK_ENTER:
-                    gp.mainStage = GameState.START;
-                    break;
-                case KeyEvent.VK_P:    
-                    gp.mainStage = GameState.WAIT;
-                    break;
-                default: break;
-            }
+
+            // Xử lý up down để cài đặt pause 
         }
         else if (gp.mainStage == GameState.END) {
 

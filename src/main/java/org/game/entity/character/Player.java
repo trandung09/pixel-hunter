@@ -29,6 +29,8 @@ public class Player extends Entity
     public boolean useKey = false;
     public boolean useMana = false;
 
+    protected BufferedImage cutUp1, cutUp2, cutDown1, cutDown2, cutLeft1, cutLeft2, cutRight1, cutRight2;
+
     public Player(GamePanel gp) {
 
         super(gp);
@@ -48,18 +50,46 @@ public class Player extends Entity
         solidAreaDefaultY = solidArea.y;
 
         loadPlayerImage();
+        loadPlayerAttackImage();
     }
 
     private void loadPlayerImage() {
 
-        up1 = setUp("/player/boy_up_1");
-        up2 = setUp("/player/boy_up_2");
-        down1 = setUp("/player/boy_down_1");
-        down2 = setUp("/player/boy_down_2");
-        left1 = setUp("/player/boy_left_1");
-        left2 = setUp("/player/boy_left_2");
-        right1 = setUp("/player/boy_right_1");
-        right2 = setUp("/player/boy_right_2");
+        int width = GamePanel.tileSize; 
+        int height = GamePanel.tileSize;
+
+        up1 = setUp("/player/boy_up_1", width, height);
+        up2 = setUp("/player/boy_up_2", width, height);
+        down1 = setUp("/player/boy_down_1", width, height);
+        down2 = setUp("/player/boy_down_2", width, height);
+        left1 = setUp("/player/boy_left_1", width, height);
+        left2 = setUp("/player/boy_left_2", width, height);
+        right1 = setUp("/player/boy_right_1", width, height);
+        right2 = setUp("/player/boy_right_2", width, height);
+    }
+
+    private void loadPlayerAttackImage() {
+
+        int width = GamePanel.tileSize; 
+        int height = GamePanel.tileSize;
+
+        attackUp1 = setUp("/player/boy_attack_up_1", width, height);
+        attackUp2 = setUp("/player/boy_attack_up_2", width, height);
+        attackDown1 = setUp("/player/boy_attack_down_1", width, height);
+        attackDown2 = setUp("/player/boy_attack_down_2", width, height);
+        attackLeft1 = setUp("/player/boy_attack_left_1", width, height);
+        attackLeft2 = setUp("/player/boy_attack_left_2", width, height);
+        attackRight1 = setUp("/player/boy_attack_right_1", width, height);
+        attackRight2 = setUp("/player/boy_attack_right_2", width, height);
+
+        cutUp1 = setUp("/player/boy_attack_up_1", width, height);
+        cutUp2 = setUp("/player/boy_attack_up_2", width, height);
+        cutDown1 = setUp("/player/boy_attack_down_1", width, height);
+        cutDown2 = setUp("/player/boy_attack_down_2", width, height);
+        cutLeft1 = setUp("/player/boy_attack_left_1", width, height);
+        cutLeft2 = setUp("/player/boy_attack_left_2", width, height);
+        cutRight1 = setUp("/player/boy_attack_right_1", width, height);
+        cutRight2 = setUp("/player/boy_attack_right_2", width, height);
     }
 
     @Override
@@ -74,7 +104,7 @@ public class Player extends Entity
         
         if (attacking == true) {
 
-
+            attacking();
         }
 
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
@@ -91,6 +121,14 @@ public class Player extends Entity
             }
 
             collisionOn = false;
+            coChecker.checkCoWithTile(this);
+            int npcIndex = coChecker.checkCoWithEntity(this, gp.npcs);
+            int monsterIndex = coChecker.checkCoWithEntity(this, gp.monsters);
+            int objIndex = coChecker.checkCoWithObject(this, true);
+
+            pickObject(objIndex);
+            contactMonster(monsterIndex);
+            interactNpc(npcIndex);
         
             if(!collisionOn){
                 switch (direction) {
@@ -100,6 +138,38 @@ public class Player extends Entity
                     case RIGHT: worldX += speed; break;
                 }
             }
+        }
+    }
+
+    // Xử lý các hành động nhân vật với các npc
+    public void interactNpc(int index) {
+
+    }
+
+    // Xử lsy các hành động của nhân vật khi va chạm với quái vật
+    public void contactMonster(int index) {
+
+    }
+
+    public void attacking() {
+
+    }
+
+    // Xử lý các hoạt động của nhân vật với các object
+    public void pickObject(int index) {
+
+        if (index == -1) return;
+
+        String objectName = gp.objs[index].name;
+
+        switch (objectName) {
+            case "Boots":
+                speed += 5;
+                gp.objs[index] = null;
+                break;
+        
+            default:
+                break;
         }
     }
 

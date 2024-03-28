@@ -1,4 +1,4 @@
-package org.game.entity.monster;
+package org.game.entity.character.monster;
 
 import org.game.frame.GamePanel;
 

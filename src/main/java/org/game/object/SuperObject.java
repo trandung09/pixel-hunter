@@ -30,9 +30,16 @@ public class SuperObject {
         solidAreaDefaultY = solidArea.y;
     }
 
+    protected BufferedImage getImage(String imagePath) {
+
+        return uTool.getImage(imagePath);
+    }
 
     public void draw(Graphics2D g2D) {
-        // xử lý vẽ object theo vị trí nhân vật
-        g2D.drawImage(image, worldX, worldY, null);
+        
+        int drawX = worldX - gp.player.worldX + gp.player.drawX;
+        int drawY = worldY - gp.player.worldY + gp.player.drawY;
+
+        g2D.drawImage(image, drawX, drawY, GamePanel.tileSize, GamePanel.tileSize, null);
     }
 }
